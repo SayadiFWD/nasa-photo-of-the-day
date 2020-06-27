@@ -1,7 +1,31 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled, { css } from "styled-components";
 
+const Data = styled.div`
+border: 2px solid black;
+margin: 50px;
+`
+
+const Title = styled.h1`
+color:tomato;
+`
+
+const Paragraph = styled.p`
+
+
+border-top: 2px dotted black;
+padding-left: 100px;
+padding-right: 100px;
+
+
+`
+const Image = styled.img`
+
+border-radius: 10px;
+
+`
 function PhotoList() {
     const [data, setData] = useState({})
     useEffect(() => {
@@ -12,13 +36,13 @@ function PhotoList() {
 
     console.log(data)
     return (
-        <div className = 'wrapper'>
-            <h1>{data.title}</h1>
+        <Data className = 'wrapper'>
+            <Title>{data.title}</Title>
             <h3>{data.date}</h3>
-            <img alt={data.title} src={data.url}/>
+            <Image alt={data.title} src={data.url}/>
             <h3>{data.copyright}</h3>
-            <p>{data.explanation}</p>
-        </div>
+            <Paragraph>{data.explanation}</Paragraph>
+        </Data>
     )
 }
 
